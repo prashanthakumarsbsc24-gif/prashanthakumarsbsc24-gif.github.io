@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prashantha Kumar S | Data Analyst Portfolio</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-hover: #263348;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 68px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 96px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 640px;
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+    }
+
+    /* Sections */
+    section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 1.65rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 24px;
+    }
+
+    @media (max-width: 520px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 20px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tech-pill {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .card-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .skill-box h4 {
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .skill-box p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* Contact / Footer */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Prashantha<span>.data</span></a>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero">
+      <span class="badge">Data Analyst & Database Systems</span>
+      <h1>Turning structured data and systems into clear business decisions.</h1>
+      <p>
+        Hi, I'm <strong>Prashantha Kumar S</strong>. I build relational database solutions, real-time inventory valuation models, and data-driven web applications using SQL, Python, and modern web technologies.
+      </p>
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary">View Featured Projects</a>
+        <a href="https://github.com/prashanthakumarsbsc24-gif" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile</a>
+        <a href="[LINK-TO-YOUR-RESUME.pdf]" target="_blank" rel="noopener" class="btn btn-secondary">Download Resume</a>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Selected work across real-time inventory valuation, database engineering, retail platforms, and personal finance tracking.</p>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: Pharmagaurd -->
+        <article class="card">
+          <div>
+            <div class="card-tag">Inventory & Real-Time Valuation</div>
+            <h3>PharmaGuard — Real-Time Stock Valuation</h3>
+            <p>
+              Designed a real-time pharmacy inventory and stock valuation system to track batch-level medicine value, monitor expiry timelines, and prevent capital lock-up or critical stock shortages.
+            </p>
+            <div class="tech-list">
+              <span class="tech-pill">SQL / DBMS</span>
+              <span class="tech-pill">Stock Valuation</span>
+              <span class="tech-pill">Inventory Analytics</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/prashanthakumarsbsc24-gif/Pharmagaurd" target="_blank" rel="noopener">GitHub Repository →</a>
+          </div>
+        </article>
+
+        <!-- Project 2: Fashion_MSIT -->
+        <article class="card">
+          <div>
+            <div class="card-tag">Retail & Web Application</div>
+            <h3>Fashion MSIT</h3>
+            <p>
+              Developed a structured retail fashion catalog and interface focused on clean product categorization, user browsing flow, and attribute-based filtering.
+            </p>
+            <div class="tech-list">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">JavaScript</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/prashanthakumarsbsc24-gif/Fashion_MSIT" target="_blank" rel="noopener">GitHub Repository →</a>
+          </div>
+        </article>
+
+        <!-- Project 3: CS2201_DBMS -->
+        <article class="card">
+          <div>
+            <div class="card-tag">Database Management Systems</div>
+            <h3>Relational Database Design & SQL Querying (DBMS)</h3>
+            <p>
+              Implemented normalized relational schemas, ER modeling, complex multi-table SQL joins, constraints, and transaction queries to ensure data integrity and efficient retrieval.
+            </p>
+            <div class="tech-list">
+              <span class="tech-pill">SQL</span>
+              <span class="tech-pill">Database Normalization</span>
+              <span class="tech-pill">ER Modeling</span>
+              <span class="tech-pill">RDBMS</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/prashanthakumarsbsc24-gif/CS2201_DBMS" target="_blank" rel="noopener">GitHub Repository →</a>
+          </div>
+        </article>
+
+        <!-- Project 4: Expense_tracker -->
+        <article class="card">
+          <div>
+            <div class="card-tag">Personal Finance Analytics</div>
+            <h3>Expense Tracker & Spending Insights</h3>
+            <p>
+              Built a structured expense tracking application that categorizes daily transactions, monitors budget thresholds, and surfaces monthly spending trends for better personal cash-flow management.
+            </p>
+            <div class="tech-list">
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">HTML / CSS</span>
+              <span class="tech-pill">Spending Analytics</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/prashanthakumarsbsc24-gif/Expense_tracker" target="_blank" rel="noopener">GitHub Repository →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Technical Toolkit</h2>
+      <p class="section-subtitle">Core tools and technologies I use to structure, query, and visualize data.</p>
+
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h4>Database & Querying</h4>
+          <p>SQL (Joins, Subqueries, Constraints, Normalization), Relational Database Design (DBMS)</p>
+        </div>
+        <div class="skill-box">
+          <h4>Data Analysis & BI</h4>
+          <p>Python (Pandas, NumPy), Excel, Exploratory Data Analysis (EDA), KPI Tracking</p>
+        </div>
+        <div class="skill-box">
+          <h4>Programming</h4>
+          <p>Java, JavaScript, Data Structures & Object-Oriented Design</p>
+        </div>
+        <div class="skill-box">
+          <h4>Web & Version Control</h4>
+          <p>HTML5, CSS3, Git, GitHub, GitHub Pages</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="border-bottom: none;">
+      <div class="contact-box">
+        <h2>Let's Connect</h2>
+        <p>
+          Open to Data Analyst, Database, and Software/Analytics internships or roles. Feel free to reach out directly.
+        </p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="mailto:[your.email@example.com]" class="btn btn-primary">Email Me</a>
+          <a href="https://linkedin.com/in/[your-linkedin]" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
+          <a href="https://github.com/prashanthakumarsbsc24-gif" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Prashantha Kumar S • Built with clean HTML & CSS
+    </div>
+  </footer>
+
+</body>
+</html>
